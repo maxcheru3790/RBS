@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefits - Room Booking System</title>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>Benefits of Our Room Booking System</h1>
+        <p>Discover the advantages of using our system</p>
+    </div>
+</header>
+  <nav>
+    <div class="container nav-container">
+        <a href="{% url 'my_index' %}">Home</a>
+        <a href="{% url 'my_features' %}">Features</a>
+         <a href="{% url 'my_about' %}">About</a>
+        <a href="{% url 'my_contact' %}">Contact Us</a>
+
+    </div>
+</nav>
+
+
+<section id="benefits">
+    <div class="container section-container">
+        <h2>Benefits of a Room Booking System</h2>
+        <p>Our Room Booking System offers numerous benefits for both users and administrators:</p>
+        <ul>
+            <li><strong>Efficiency and Convenience:</strong> Book rooms anytime, 24/7, without needing to visit in person or make calls.</li>
+            <li><strong>Real-time Availability:</strong> The system updates availability in real time, preventing double bookings.</li>
+            <li><strong>Resource Optimization:</strong> Monitor room usage and optimize space allocation to ensure rooms are not left unused.</li>
+            <li><strong>Easy Integration:</strong> The system integrates seamlessly with other tools like calendars to prevent scheduling conflicts.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

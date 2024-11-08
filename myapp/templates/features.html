@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/js.js' %}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Room Booking System</title>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>Custom Features of Our Room Booking System</h1>
+        <p>Advanced features tailored to your needs</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-container">
+        <a href="{% url 'my_index' %}">Home</a>
+        <a href="{% url 'my_benefits' %}">Benefits</a>
+        <a href="{% url 'my_about' %}">About</a>
+        <a href="{% url 'my_contact' %}">Contact Us</a>
+    </div>
+</nav>
+
+<main id="features">
+   <div class="container section-container">
+    <h2>Custom Features for Advanced Room Booking</h2>
+    <p>Our advanced Room Booking System includes several features tailored to your specific needs:</p>
+
+    <ul>
+        <li>
+            <h3>Real-Time Availability</h3>
+            <p>Check room availability in real-time and make instant bookings, ensuring you never miss out on available spaces.</p>
+        </li>
+        <li>
+            <h3>Automated Reminders</h3>
+            <p>Receive email or SMS reminders about your upcoming bookings to keep you on schedule and minimize no-shows.</p>
+        </li>
+        <li>
+            <h3>Customizable Room Setup</h3>
+            <p>Choose room layouts, equipment options, and other customizable features to suit your event or meeting requirements.</p>
+        </li>
+        <li>
+            <h3>Detailed Analytics and Reporting</h3>
+            <p>Gain insights into room usage patterns, booking trends, and occupancy rates with our built-in analytics and reporting tools.</p>
+        </li>
+        <li>
+            <h3>User-Friendly Interface</h3>
+            <p>Our intuitive interface makes it easy for users of all technical abilities to browse, book, and manage rooms with ease.</p>
+        </li>
+        <li>
+            <h3>Multi-Location Management</h3>
+            <p>Manage bookings across multiple locations or campuses from a single platform, simplifying operations and oversight.</p>
+        </li>
+        <li>
+            <h3>Advanced Security Features</h3>
+            <p>Control access to bookings and ensure data security with secure user authentication and permission-based access.</p>
+        </li>
+        <li>
+            <h3>Integration with Calendar Apps</h3>
+            <p>Seamlessly integrate your bookings with popular calendar apps, such as Google Calendar and Outlook, for efficient scheduling.</p>
+        </li>
+    </ul>
+
+    <p>Explore these and many more features designed to make room booking simple, efficient, and tailored to your organization’s needs.</p>
+</div>
+
+</main>
+
+<footer>
+    <p style="text-align:center; padding: 15px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

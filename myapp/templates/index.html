@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking System</title>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>Room Booking System</h1>
+        <p>Streamline your booking process with ease</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-container">
+        <a href="{% url 'my_forms' %}">Login Page</a>
+        <a href="{% url 'my_benefits' %}">Benefits</a>
+        <a href="{% url 'my_features' %}">Features</a>
+         <a href="{% url 'my_about' %}">About</a>
+        <a href="{% url 'my_contact' %}">Contact Us</a>
+    </div>
+</nav>
+
+<section id="benefits">
+    <div class="container section-container">
+        <h2>Benefits of the Room Booking System</h2>
+        <p>Our Room Booking System offers numerous benefits for both users and administrators:</p>
+        <ul>
+            <li><strong>Efficiency and Convenience:</strong> Book rooms anytime, 24/7, without needing to visit in person or make calls.</li>
+            <li><strong>Real-time Availability:</strong> The system updates availability in real-time, preventing double bookings.</li>
+            <li><strong>Resource Optimization:</strong> Monitor room usage and optimize space allocation to ensure rooms are not left unused.</li>
+            <li><strong>Easy Integration:</strong> The system integrates seamlessly with other tools like calendars to prevent scheduling conflicts.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="features">
+    <div class="container section-container">
+        <h2>Features of the Room Booking System</h2>
+        <p>Our advanced Room Booking System includes several features tailored to your specific needs:</p>
+        <ul>
+            <li><strong>Multiple Room Options:</strong> Handle bookings for various types of rooms, including meeting rooms, event spaces, and classrooms.</li>
+            <li><strong>Flexible Booking Periods:</strong> Make reservations for short-term or long-term periods, based on your needs.</li>
+            <li><strong>Payment Integration:</strong> For paid bookings, the system integrates with payment processors to allow users to pay for reservations online.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="booking-form">
+    <div class="container section-container">
+        <h2>Book a Room</h2>
+        <form id="booking-form">
+            <div>
+                <label for="room">Select Room:</label>
+                <select id="room" name="room" required>
+                    <option value="" disabled selected>Select a room</option>
+                    <!-- Room options will be populated dynamically with JavaScript -->
+                </select>
+            </div>
+            <div>
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="time">Select Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>

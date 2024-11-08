@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav>
+    <div class="container nav-container">
+        <a href="{% url 'my_index' %}">Home</a>
+        <a href="{% url 'my_benefits' %}">Benefits</a>
+        <a href="{% url 'my_features' %}">Features</a>
+        <a href="{% url 'my_contact' %}">Contact Us</a>
+        <a href="{% url 'my_about' %}">About</a>
+    </div>
+</nav>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Room Booking System</title>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>How the Room Booking System Works</h1>
+        <p>A simple and efficient way to reserve rooms</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-container">
+        <a href="/">Home</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+    </div>
+</nav>
+
+<section id="how-it-works">
+    <div class="container section-container">
+        <h2>How the Room Booking System Works</h2>
+        <p>Booking rooms for meetings, conferences, or personal events can often be a time-consuming task. Our Room Booking System provides a convenient and efficient way to make room reservations easily. Here's how it works:</p>
+        <ul>
+            <li><strong>Select the Room:</strong> Browse through available rooms categorized by size, features, and availability.</li>
+            <li><strong>Choose Date and Time:</strong> Pick the desired date and time for your booking.</li>
+            <li><strong>Confirm Booking:</strong> After selecting the room and time, confirm your reservation and receive an email confirmation.</li>
+            <li><strong>Notifications and Reminders:</strong> Get automatic reminders to ensure you don’t miss your booking.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-container">
+        <p>&copy; 2024 Room Booking System. All rights reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>

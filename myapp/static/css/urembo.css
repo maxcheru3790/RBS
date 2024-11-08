@@ -1,0 +1,81 @@
+/* Body and overall page styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: limegreen; /* Lime green background */
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Make the body take at least full viewport height */
+}
+
+/* Container for page content */
+.main-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Ensures content pushes the footer down if needed */
+}
+
+/* Header styles */
+header {
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Section styles */
+section {
+    margin-top: 40px;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+section p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Footer Styles */
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed; /* Makes the footer stick to the bottom of the page */
+    bottom: 0;
+    left: 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}

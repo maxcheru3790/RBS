@@ -1,0 +1,144 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least full height of the viewport */
+}
+
+/* Header Styles */
+header {
+    background-color: darkgreen; /* Green background */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: gray; /* Dark background for nav */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.nav-container a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.nav-container a:hover {
+    background-color: blue; /* Green on hover */
+}
+
+/* Section Styles */
+section {
+    padding: 20px 0;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #4CAF50; /* Green color for strong emphasis */
+}
+
+.cta {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Container Class for content */
+.main-container {
+    width: 10%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    flex: 1; /* Ensures content takes available space */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 300px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+    }
+
+    .nav-container a {
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+
+    .section-container {
+        padding: 20px;
+    }
+
+    h2 {

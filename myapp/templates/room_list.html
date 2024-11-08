@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room List</title>
+</head>
+<body>
+    <h1>Rooms</h1>
+    <ul>
+        {% for room in rooms %}
+        <li>{{ room.room_name }} - {{ room.room_type }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
