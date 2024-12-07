@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Male Rooms</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Male Rooms</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'myapp:my_index' %}">Home</a></li>
+                <li><a href="{% url 'myapp:my_about' %}">About</a></li>
+                <li><a href="{% url 'myapp:my_contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Available Rooms</h2>
+        {% if rooms %}
+            <h3>Showing rooms for Male</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Capacity</th>
+                        <th>Availability</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.room_name }}</td>
+                        <td>{{ room.capacity }}</td>
+                        <td>{{ room.is_available|yesno:"Available,Not Available" }}</td>
+                        <td><a href="{% url 'myapp:my_book_room' room.id %}">Book</a></td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">No rooms available at the moment.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No rooms available for the selected gender.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

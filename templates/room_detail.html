@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Detail - {{ room.room_name }}</title>
+    <style>
+        /* Add your styling for the room detail page here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .room-details {
+            margin-top: 20px;
+        }
+
+        .room-details p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            font-weight: bold;
+            color: green;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Room Details - {{ room.room_name }}</h1>
+
+    <div class="room-details">
+        <p><strong>Room Name: </strong>{{ room.room_name }}</p>
+        <p><strong>Room Type: </strong>{{ room.room_type }}</p>
+        <p><strong>Capacity: </strong>{{ room.capacity }}</p>
+        <p><strong>Price: </strong>${{ room.price }}</p>
+        <p><strong>Description: </strong>{{ room.description }}</p>
+        <p><strong>Hall Name: </strong>{{ room.hall_name }}</p>
+        <p><strong>Status: </strong><span class="status">{{ room.status }}</span></p>
+    </div>
+
+    <a href="{% url 'myapp:my_room_list' %}" class="back-link">Back to Room List</a>
+   <footer>
+    <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+   </footer>
+
+</body>
+</html>

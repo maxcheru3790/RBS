@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="{% static 'css/beauty.css' %}">
-    <script src="{% static 'js/signup.js' %}"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | Room Booking System</title>
@@ -39,10 +39,10 @@
         <button type="submit" class="btn">Sign Up</button>
 
         <div class="login-link">
-            <p>Already have an account? <a href="{% url 'my_forms' %}">Login here</a></p>
+            <p>Already have an account? <a href="{% url 'myapp:my_forms' %}">Login here</a></p>
         </div>
     </form>
 </div>
-
+<script src="{% static 'js/signup.js' %}"></script>
 </body>
 </html>

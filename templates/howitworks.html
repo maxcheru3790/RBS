@@ -4,11 +4,11 @@
 <head>
     <nav>
     <div class="container nav-container">
-        <a href="{% url 'my_index' %}">Home</a>
-        <a href="{% url 'my_benefits' %}">Benefits</a>
-        <a href="{% url 'my_features' %}">Features</a>
-        <a href="{% url 'my_contact' %}">Contact Us</a>
-        <a href="{% url 'my_about' %}">About</a>
+        <a href="{% url 'myapp:my_index' %}">Home</a>
+        <a href="{% url 'myapp:my_benefits' %}">Benefits</a>
+        <a href="{% url 'myapp:my_features' %}">Features</a>
+        <a href="{% url 'myapp:my_contact' %}">Contact Us</a>
+        <a href="{% url 'myapp:my_about' %}">About</a>
     </div>
 </nav>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -27,7 +27,7 @@
 
 <nav>
     <div class="container nav-container">
-        <a href="/">Home</a>
+        <a href="/myapp/static">Home</a>
         <a href="#benefits">Benefits</a>
         <a href="#features">Features</a>
         <a href="#about">About</a>

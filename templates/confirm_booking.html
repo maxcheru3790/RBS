@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .confirmation-message {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .confirmation-message p {
+            margin: 10px 0;
+        }
+        .confirmation-message .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .confirmation-message .btn:hover {
+            background-color: #0056b3;
+        }
+        .booking-details {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .booking-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>Room Booking System</h1>
+    </div>
+</header>
+
+<section id="booking-confirmation">
+    <div class="container">
+        {% if booking_success %}
+        <div class="confirmation-message">
+            <h2>Booking Successful!</h2>
+            <p>You have successfully booked the room.</p>
+            <div class="booking-details">
+                <p><strong>Room Type:</strong> {{ room_type }}</p>
+                <p><strong>Capacity:</strong> {{ capacity }} people</p>
+                <p><strong>Status:</strong> {{ room_status }}</p>
+                <p><strong>Full Name:</strong> {{ full_name }}</p>
+                <p><strong>Email Address:</strong> {{ email_address }}</p>
+                <p><strong>Phone Number:</strong> {{ phone_number }}</p>
+                <p><strong>Booking Date:</strong> {{ booking_date }}</p>
+            </div>
+            <a href="{% url 'myapp:my_index' %}" class="btn">Go Back to Home</a>
+        </div>
+        {% else %}
+        <div class="error-message">
+            <h2>Booking Failed</h2>
+            <p>Sorry, there was an issue with your booking. Please try again later.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<footer>
+    <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

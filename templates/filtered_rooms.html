@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ gender|title }} Rooms</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1 style="text-align: center;">{{ gender|title }} Rooms</h1>
+    </header>
+
+    <!-- Available rooms section -->
+    <main style="text-align: center; margin-top: 50px;">
+        {% if rooms %}
+            <div class="room-list" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                {% for room in rooms %}
+                    <div class="room-card" style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; width: 300px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                        <h3>Room: {{ room.room_name }}</h3>
+                        <p>Type: {{ room.room_type }}</p>
+                        <p>Capacity: {{ room.capacity }}</p>
+                        <p>Status:
+                            {% if room.status == 'available' %}
+                                <span style="color: green;">Available</span>
+                            {% else %}
+                                <span style="color: red;">Unavailable</span>
+                            {% endif %}
+                        </p>
+
+                        {% if room.status == 'available' %}
+                            <form action="{% url 'myapp:my_book_room' room.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="book-btn">Book Now</button>
+                            </form>
+                        {% else %}
+                            <p class="unavailable" style="color: gray;">Room not available</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No {{ gender }} rooms available at the moment. Please check back later.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

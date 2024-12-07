@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room List</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+
+        table th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        table td a {
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        table td a:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: gray;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Rooms Available for {% if gender %}{{ gender|title }}{% else %}All Users{% endif %}</h1>
+    </header>
+
+    <main>
+        <h2>Available Rooms</h2>
+        {% if rooms %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Capacity</th>
+                        <th>Hall Name</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.room_name }}</td>
+                        <td>{{ room.capacity }}</td>
+                        <td>{{ room.hall_name }}</td>
+                        <td>{{ room.price }}</td>
+                        <td>
+                            <span style="color: {% if room.status == 'Available' %}green{% else %}red{% endif %};">
+                                {{ room.status }}
+                            </span>
+                        </td>
+                        <td>
+                            <a class="book-btn" href="{% url 'myapp:my_book_room' room.id %}">Book</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No rooms available at the moment for the selected gender.</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Room Booking System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Add hover effects to rows
+        const rows = document.querySelectorAll("table tbody tr");
+        rows.forEach(row => {
+            row.addEventListener("mouseover", () => {
+                row.style.backgroundColor = "#e9ecef";
+            });
+
+            row.addEventListener("mouseout", () => {
+                row.style.backgroundColor = "";
+            });
+        });
+
+        // Confirm booking on button click
+        const bookButtons = document.querySelectorAll(".book-btn");
+        bookButtons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                if (!confirm("Are you sure you want to book this room?")) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

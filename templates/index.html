@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Scrollable container styling for benefits and features */
+        .scrollable-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+
+        .scrollable-container .item {
+            flex: 0 0 auto;
+            width: 300px;
+            margin-right: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .scrollable-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        .scrollable-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Placeholder for images */
+        .image-placeholder {
+            width: 100%;
+            height: 150px;
+            background-color: #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Ensure text is properly wrapped and doesn't overflow */
+        .item p {
+            font-size: 14px;
+            line-height: 1.6;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; /* Limit to 3 lines */
+            -webkit-box-orient: vertical;
+        }
+
+        /* Responsive layout */
+        @media (max-width: 768px) {
+            .scrollable-container .item {
+                width: 250px; /* Smaller item width for mobile */
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+        }
+
+        /* Accessibility focus styles */
+        .scrollable-container button:focus {
+            outline: 2px solid #0056b3;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-container">
+        <h1>Room Booking System</h1>
+        <p>Streamline your booking process with ease</p>
+    </div>
+</header>
+
+<nav>
+    <div class="container nav-container">
+        <a href="{% url 'myapp:my_custom_login' %}">Login Page</a>
+        <a href="{% url 'myapp:my_benefits' %}">Benefits</a>
+        <a href="{% url 'myapp:my_features' %}">Features</a>
+        <a href="{% url 'myapp:my_about' %}">About</a>
+        <a href="{% url 'myapp:my_contact' %}">Contact Us</a>
+    </div>
+</nav>
+
+<section id="benefits">
+    <div class="container section-container">
+        <h2>Benefits of the Room Booking System</h2>
+        <p>Our Room Booking System offers numerous benefits for both users and administrators:</p>
+        <!-- Scrollable container for benefits -->
+        <div class="scrollable-container" role="region" aria-label="Room Booking System Benefits">
+            <div class="item">
+                <div class="image-placeholder"></div>
+                <p><strong>Efficiency and Convenience</strong></p>
+                <button aria-label="Learn more about Efficiency and Convenience">Learn More</button>
+            </div>
+            <div class="item">
+                <div class="image-placeholder"></div>
+                <p><strong>Real-time Availability</strong></p>
+                <button aria-label="Learn more about Real-time Availability">Learn More</button>
+            </div>
+            <div class="item">
+                <div class="image-placeholder"></div>
+                <p><strong>Resource Optimization</strong></p>
+                <button aria-label="Learn more about Resource Optimization">Learn More</button>
+            </div>
+            <div class="item">
+                <div class="image-placeholder"></div>
+                <p><strong>Easy Integration</strong></p>
+                <button aria-label="Learn more about Easy Integration">Learn More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="container section-container">
+        <h2>Features of the Room Booking System</h2>
+        <p>Our advanced Room Booking System includes several features tailored to your specific needs:</p>
+        <!-- Scrollable container for features -->
+        <div class="scrollable-container" role="region" aria-label="Room Booking System Features">
+            <div class="item">
+                <div class="image-container">
+                    <img src="{% static 'images/' %}" alt="Multiple Room Options" aria-hidden="true">
+                </div>
+                <p><strong>Multiple Room Options</strong></p>
+                <button aria-label="Learn more about Multiple Room Options">Learn More</button>
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="{% static 'images/' %}" alt="Flexible Booking Periods" aria-hidden="true">
+                </div>
+                <p><strong>Flexible Booking Periods</strong></p>
+                <button aria-label="Learn more about Flexible Booking Periods">Learn More</button>
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="{% static 'images/' %}" alt="Payment Integration" aria-hidden="true">
+                </div>
+                <p><strong>Payment Integration</strong></p>
+                <button aria-label="Learn more about Payment Integration">Learn More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p style="text-align:center; padding: 20px; background-color: gray; color: white;">&copy; 2024 Room Booking System. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollableContainers = document.querySelectorAll('.scrollable-container');
+
+        scrollableContainers.forEach(container => {
+            let isMouseDown = false;
+            let startX, scrollLeft;
+
+            container.addEventListener('mousedown', (e) => {
+                isMouseDown = true;
+                startX = e.pageX - container.offsetLeft;
+                scrollLeft = container.scrollLeft;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isMouseDown = false;
+            });
+
+            container.addEventListener('mouseup', () => {
+                isMouseDown = false;
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!isMouseDown) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const walk = (x - startX) * 2; // Multiplied by 2 for faster scrolling
+                container.scrollLeft = scrollLeft - walk;
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
